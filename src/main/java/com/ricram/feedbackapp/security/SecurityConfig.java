@@ -1,5 +1,6 @@
 package com.ricram.feedbackapp.security;
 
+import com.ricram.feedbackapp.entity.UserRole;
 import com.ricram.feedbackapp.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
