@@ -42,6 +42,7 @@ public class AuthenticationService {
                 .email(registerUserDto.email())
                 .password(passwordEncoder.encode(registerUserDto.password()))
                 .role(UserRole.ADMIN)
+                .acronym(registerUserDto.acronym())
                 .build();
 
         var savedUser = repository.save(user);

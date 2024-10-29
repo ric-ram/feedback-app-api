@@ -1,5 +1,9 @@
 package com.ricram.feedbackapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.ricram.feedbackapp.views.Views;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,6 +20,7 @@ import java.util.List;
 @Builder
 @Table(name="_user")
 public class User implements UserDetails {
+    @JsonView(Views.Public.class)
     @Setter
     @Getter
     @Id
@@ -23,16 +28,25 @@ public class User implements UserDetails {
     @Column(name = "id")
     private Integer id;
 
+    @JsonView(Views.Public.class)
     @Setter
     @Getter
     @Column(name = "first_name")
     private String firstName;
 
+    @JsonView(Views.Public.class)
     @Setter
     @Getter
     @Column(name = "last_name")
     private String lastName;
 
+    @JsonView(Views.Public.class)
+    @Setter
+    @Getter
+    @Column(name = "acronym")
+    private String acronym;
+
+    @JsonView(Views.Public.class)
     @Setter
     @Getter
     @Column(name = "email")
@@ -41,6 +55,7 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
+    @JsonView(Views.Public.class)
     @Column(name = "user_role")
     @Enumerated(EnumType.STRING)
     private UserRole role;
